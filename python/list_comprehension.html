@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Python List Comprehension</title>
+    <style>
+        .exercise {
+            margin: 50px;
+        }
+    </style>
+
+    <script async src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+
+<body>
+    <h1>リスト内包（ないほう）</h1>
+
+    <p>リスト内包では、短縮されたシンタックスで既存のリスト値をもとに新規リストを作成できます。</p>
+    
+    <p>
+    例：<br>
+    果物のリストをもとに、果物の名前に "a" が含まれる値のみで新しいリストを作成したいです。<br>
+    リスト内包を使わなければ、<code>for</code> ループの中に <code>if</code>文を利用しないと行けません。
+    </p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>リスト内包を<u>利用しない</u>場合</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+                newlist = []
+                
+                for x in fruits:
+                  if "a" in x:
+                    newlist.append(x)
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    <p>リスト内包を使ったら、１行で収めます。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>リスト内包を<u>利用する</u>場合</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = [x for x in fruits if "a" in x]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    <h2>シンタックス</h2>
+
+    <code>新リスト = [ 式 for 項目 in リスト if 条件 == True ]</code>
+
+    <p>リターン値が新しいリストで、もとのリストが変更されません。</p>
+
+    
+    <h3>条件</h3>
+
+    <p>条件は <code>True</code> となる項目のみを受け入れるフィルターのようなものです。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>"apple" 以外の値のみ受け入れる</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = [x for x in fruits if x != "apple"]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    <p>
+        <code>if x != "apple"</code> の条件は "apple" 以外の値で <code>True</code> となるので<br>
+        新しいリストは "apple" を除いて全果物を含むことになります。
+    </p>
+
+    <p>条件はオプションなので省略できます。</p>
+    
+    <div class="exercise">
+        <div class="title">
+            <h2>条件なしの例</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = [x for x in fruits]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    <p>※本チュートリアルの内容は、W3Schools の<a href="https://www.w3schools.com/python/python_lists_comprehension.asp">チュートリアル</a>を参考に作成しました。</p>
+</body>
+
+</html>
