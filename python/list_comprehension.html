@@ -71,13 +71,15 @@
         </div>
     </div>
 
+    <hr>
     <h2>シンタックス</h2>
 
-    <code>新リスト = [ 式 for 項目 in リスト if 条件 == True ]</code>
+    <code>新リスト = [ 式文 for 項目 in <i>iterable</i> if 条件 == True ]</code>
 
     <p>リターン値が新しいリストで、もとのリストが変更されません。</p>
 
     
+    <hr>
     <h3>条件</h3>
 
     <p>条件は <code>True</code> となる項目のみを受け入れるフィルターのようなものです。</p>
@@ -124,6 +126,153 @@
             </code>
             <code data-type="solution"></code>
             <code data-type="sct"></code>
+        </div>
+    </div>
+
+    
+    <hr>
+    <h3>Iterable</h3>
+
+    <p>Iterableはリスト、タプル(tuple)、セットなど集合的データ構造（コレクションあるいはコンテナ）の各要素に対する繰り返し処理できるものです。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2><code>range()</code> で iterable の作成</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                newlist = [x for x in range(10)]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="title">
+            <h2><code>range()</code> と条件の組み合わせ</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                newlist = [x for x in range(10) if x < 5]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+
+    
+    <hr>
+    <h3>式文</h3>
+
+    <p>式文は繰り返し処理の現在項目で、リストに追加され前に変更できます。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>新リストの値を大文字にする</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = [x.upper() for x in fruits]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+    
+    <p>式文にはなんでも設定可能です。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>新リストの値を全部 "hello" に設定する</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = ['hello' for x in fruits]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+    
+    <p>式文も条件を含めるが、フィルターではなく出力を変化させるためです。</p>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>"banana" の代わりに "orange" を返す</h2>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+                newlist = [x if x != "banana" else "orange" for x in fruits]
+                
+                print(newlist)
+            </code>
+            <code data-type="solution"></code>
+            <code data-type="sct"></code>
+        </div>
+    </div>
+    
+    <p>
+        上記例の式文は<br>
+        現在項目が「banana」でなければ、<br>
+        そのまま返すが、「banana」であれば、「orange」を返す<br>
+        と解読します。
+    </p>
+    
+    <hr>
+    <h2>例題</h2>
+
+    <div class="exercise">
+        <div class="title">
+            <h2>例題１</h2>
+            <p>リスト内包を利用して、1 から 9 までの数字のリストを作成してプリントする。</p>
+        </div>
+
+        <div data-datacamp-exercise data-lang="python" data-height="auto">
+            <code data-type="pre-exercise-code"></code>
+            <code data-type="sample-code">
+                newlist = 
+                
+                print(newlist)
+            </code>
+            <code data-type="solution">
+                newlist = [x for x in range(1, 10)]
+
+                print(newlist)
+            </code>
+            <code data-type="sct">
+                Ex().check_list_comp(0).multi(
+                    check_iter().has_equal_value(),
+                    check_body().multi(set_context(x=x).has_equal_value() for x in range(1,10))
+                )
+            </code>
+            <div data-type="hint">
+                Iterable is <code>range</code>
+            </div>
         </div>
     </div>
 
